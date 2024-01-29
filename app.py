@@ -150,8 +150,8 @@ def folium_map_obj(latitude, longitude, locations=[]):
     for loc in locations:
         folium.Marker([loc[0], loc[1]]).add_to(m)
 
-    d = Draw(export=True)
-    d.add_to(m)
+    #d = Draw(export=True)
+    #d.add_to(m)
 
     #c1, c2 = st.columns(2)
 
@@ -216,21 +216,16 @@ def append_road_point(lat, long):
     new_row_i = len(st.session_state['config_data']['road_data']) - 1
     st.session_state['checkbox_state'][new_row_i] = False
 
-def main():
+## Main Component function
+
+
+
+def map_road_picker_component(starting_lat, starting_long):
+
     ## Pre run - set state
     if 'active_row_id' not in st.session_state:
         st.session_state['active_row_id'] = None
 
-    #if 'active_row_data' not in st.session_state:
-    #    st.session_state['active_row_data'] = None
-
-    if 'config_data' not in st.session_state:
-        st.session_state['config_data'] = {
-            'road_data': mock_folium_map()
-        }
-
-    #################### Start of App #######################
-    st.title("Streamlit Complex Data Editor Tool")
 
     ## TODO - load data from map
     map_pin_locations = [
@@ -243,7 +238,7 @@ def main():
     # if hash != state.last_map_hash:
     #    -> remake state.map_obj
     
-    map_obj= folium_map_obj(41.8781, -87.6298, locations=map_pin_locations)
+    map_obj= folium_map_obj(starting_lat, starting_long, locations=map_pin_locations)
     map = st_folium(map_obj, width=700, height=500)
 
     #print(map)
@@ -288,18 +283,23 @@ def main():
 
         st_compas_editor_ui()
 
-    ## Get + Persist Data Out in a key
-    # columns to lay out the inputs
 
-    #st.columns
+def main():
+    #################### Start of App #######################
+    st.title("Streamlit Complex Data Editor Tool")
 
-    #st.write(st.session_state["data_editor"])
+    if 'config_data' not in st.session_state:
+        st.session_state['config_data'] = {
+            'road_data': mock_folium_map()
+        }
 
+    starting_lat, starting_lon = 41.8781, -87.6298
+    map_road_picker_component(starting_lat, starting_lon)
 
-    #st.table(st.session_state['config_data']['road_data'])
+    st.write("-----------------")
+    st.write("Data from state outside component:")
 
-    #st.table(data_editor)
-
+    st.table(st.session_state['config_data']['road_data'])
 
 if __name__ == "__main__":
     main()
