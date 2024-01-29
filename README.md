@@ -17,12 +17,12 @@ streamlit run app.py
 
 ### Base state
 
-![image info](img/screenshot.png)
+![image info](img/screenshot.PNG)
 
 ### Special editing mode:
 
 
-![image info](img/screenshot2.png)
+![image info](img/screenshot2.PNG)
 
 ## Design Details
 
