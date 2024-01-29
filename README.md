@@ -8,6 +8,22 @@ Special features:
 - Change latitude and longitudes with a compass button grid
 - persist data back somewhere
 
+## Usage
+
+```sh
+pip install -r requirements.txt
+streamlit run app.py
+```
+
+### Base state
+
+![image info](img/screenshot.png)
+
+### Special editing mode:
+
+
+![image info](img/screenshot2.png)
+
 ## Design Details
 
 ### Handling and modifying data
