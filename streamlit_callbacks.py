@@ -1,5 +1,5 @@
 import streamlit as st
-from utils import move_coordinates
+from geo_utils import move_coordinates
 
 def _callback_helper_active_row():
         #edited_rows = st.session_state["data_editor"]

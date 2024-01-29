@@ -1,6 +1,6 @@
 import streamlit as st
 
-from utils import mock_folium_map
+from geo_utils import mock_folium_map
 from streamlit_components import map_road_picker_component
 
 ## Main Component function

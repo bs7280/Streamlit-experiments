@@ -2,7 +2,7 @@ import streamlit as st
 from streamlit_folium import st_folium
 import folium
 
-from utils import move_coordinates, mock_folium_map
+from geo_utils import move_coordinates, mock_folium_map
 from streamlit_callbacks import callback_data_change, callback_move_coords
 from streamlit_utils import \
         create_editable_df, st_compas_editor_ui, \
